@@ -17,7 +17,7 @@ public interface HotelDao extends JpaRepository<Hotel, Long> {
 	public List<Integer> findDistinctPricesPerNight();
 	
 	List<Hotel> findByCityOrderByPricePerNight(String city);
-
+	
 	List<Hotel> findByCityAndPricePerNightLessThanEqualOrderByPricePerNight(String city, Integer price);
 	
 	//FOR API
