@@ -17,7 +17,7 @@
 <body>
 	<!-- With boostrap, pages should generally be surrounded with a container element. -->
 	<main class="container">
-		<h1>Search for Hotels by City</h1>
+		<h1 class="page-header mt-4 mb-4">Search for Hotels by City</h1>
 		
 		<form class="form-inline" method="post" autocomplete="off">
 		  
