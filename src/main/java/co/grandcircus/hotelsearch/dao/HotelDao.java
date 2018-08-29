@@ -13,7 +13,12 @@ public interface HotelDao extends JpaRepository<Hotel, Long> {
 	@Query("SELECT DISTINCT city FROM Hotel")
 	public List<String> findDistinctCities();
 	
+	@Query("SELECT DISTINCT pricePerNight FROM Hotel ORDER BY pricePerNight")
+	public List<Integer> findDistinctPricesPerNight();
+	
 	List<Hotel> findByCityOrderByPricePerNight(String city);
+
+	List<Hotel> findByCityAndPricePerNightLessThanEqualOrderByPricePerNight(String city, Integer price);
 	
 	//FOR API
 	List<Hotel> findAllByOrderByPricePerNight();

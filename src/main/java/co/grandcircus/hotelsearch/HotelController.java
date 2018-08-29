@@ -18,14 +18,22 @@ public class HotelController {
 	public ModelAndView showHotelSearch() {
 		ModelAndView mav = new ModelAndView("hotel-search");
 		mav.addObject("cities", hotelDao.findDistinctCities());
+		mav.addObject("prices", hotelDao.findDistinctPricesPerNight());
 		return mav;
 	}
 	
 	@PostMapping("/hotel-search")
-	public ModelAndView showHotelSearchResults(String city) {
+	public ModelAndView showHotelSearchResults(String city, Integer price) {
 		ModelAndView mav = new ModelAndView("hotel-search");
 		mav.addObject("cities", hotelDao.findDistinctCities());
-		mav.addObject("hotels", hotelDao.findByCityOrderByPricePerNight(city));
+		mav.addObject("prices", hotelDao.findDistinctPricesPerNight());
+		
+		if (price != null) {
+			mav.addObject("hotels", hotelDao.findByCityAndPricePerNightLessThanEqualOrderByPricePerNight(city, price));
+		} else {
+			mav.addObject("hotels", hotelDao.findByCityOrderByPricePerNight(city));
+		}
+		
 		return mav;
 	}
 	

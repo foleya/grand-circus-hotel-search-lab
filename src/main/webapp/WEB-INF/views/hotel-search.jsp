@@ -23,9 +23,17 @@
 		  
 		  <label class="sr-only" for="city">City</label>
 		  <select class="form-control mb-2 mr-sm-2" id="city" name="city">
-		  	<option value="">Select a City</option>
+		  	<option required value="">Select a City</option>
 		  	<c:forEach items="${ cities }" var="city">
 		  		<option <c:if test="${ city eq param.city }">selected</c:if>>${ city }</option>
+		  	</c:forEach>
+		  </select>
+		  
+		  <label class="sr-only" for="city">Max Price</label>
+		  <select class="form-control mb-2 mr-sm-2" id="price" name="price">
+		  	<option value="">Select a Max Price</option>
+		  	<c:forEach items="${ prices }" var="price">
+		  		<option <c:if test="${ price eq param.price }">selected</c:if>>${ price }</option>
 		  	</c:forEach>
 		  </select>
 		
@@ -38,7 +46,7 @@
 			<table class="table">
 				<thead>
 				<tr>
-					<th>Hotel</th><th>City</th><th>Price</th>
+					<th style="width: 50%">Hotel</th><th style="width: 35%">City</th><th style="width: 15%">Price</th>
 				</tr>
 				</thead>
 				<tbody>
