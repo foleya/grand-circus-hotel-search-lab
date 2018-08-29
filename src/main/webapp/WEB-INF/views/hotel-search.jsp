@@ -33,7 +33,7 @@
 		  <select class="form-control mb-2 mr-sm-2" id="maxPrice" name="maxPrice">
 		  	<option value="">Select a Max Price</option>
 		  	<c:forEach items="${ prices }" var="price">
-		  		<option <c:if test="${ price eq param.price }">selected</c:if>>${ price }</option>
+		  		<option <c:if test="${ price eq param.maxPrice }">selected</c:if>>${ price }</option>
 		  	</c:forEach>
 		  </select>
 		
