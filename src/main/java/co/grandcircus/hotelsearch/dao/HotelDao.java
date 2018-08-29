@@ -9,8 +9,16 @@ import co.grandcircus.hotelsearch.entity.Hotel;
 
 public interface HotelDao extends JpaRepository<Hotel, Long> {
 
+	//FOR WEBSITE
 	@Query("SELECT DISTINCT city FROM Hotel")
 	public List<String> findDistinctCities();
 	
 	List<Hotel> findByCityOrderByPricePerNight(String city);
+	
+	//FOR API
+	List<Hotel> findAllByOrderByPricePerNight();
+	
+	Hotel findById(Integer id);
+	
+	public List<Hotel> findByCityContaining(String city);
 }
